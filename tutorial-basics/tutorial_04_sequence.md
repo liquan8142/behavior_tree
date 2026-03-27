@@ -15,11 +15,11 @@ sidebar_label: 04. 响应式行为
 
 - 如果调用`halt()`方法，它应尽快中止。
 
-:::caution 
-### 了解更多关于异步动作
+> [!CAUTION]
+> ### 了解更多关于异步动作
+>
+> 用户应充分理解BT.CPP中如何实现并发，并学习开发自己的异步动作的最佳实践。你可以在[这里](guides/asynchronous_nodes.md)找到一篇详细的文章。
 
-用户应充分理解BT.CPP中如何实现并发，并学习开发自己的异步动作的最佳实践。你可以在[这里](guides/asynchronous_nodes.md)找到一篇详细的文章。
-:::
 
 ## StatefulActionNode
 
@@ -232,9 +232,9 @@ Robot says: mission completed!
 
 ## 事件驱动树？
 
-:::tip
-我们使用`tree.sleep()`命令而不是`std::this_thread::sleep_for()`是有原因的！！！
-:::
+> [!TIP]
+> 我们使用`tree.sleep()`命令而不是`std::this_thread::sleep_for()`是有原因的！！！
+
 
 应优先使用`Tree::sleep()`方法，因为当树中的节点"发生变化"时，它可以被中断。
 

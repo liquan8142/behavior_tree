@@ -115,9 +115,9 @@ private:
  </root>
 ```
 
-:::tip
-你可以在[这里](learn-the-basics/xml_format.md)找到关于XML模式的更多细节。
-:::
+> [!TIP]
+> 你可以在[这里](learn-the-basics/xml_format.md)找到关于XML模式的更多细节。
+
 
 我们必须首先将自定义的树节点注册到`BehaviorTreeFactory`中，然后从文件或文本加载XML。
 

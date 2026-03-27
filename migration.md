@@ -135,11 +135,11 @@ status = tree.tickWhileRunning(sleep_ms);
 
 当节点返回 **SKIPPED** 时，它通知其父节点（ControlNode或Decorator）它尚未执行。
 
-:::note
-当你实现自己的自定义 **叶节点** 时，不应返回 **SKIPPED** 。此状态保留给前置条件。
+> [!NOTE]
+> 当你实现自己的自定义 **叶节点** 时，不应返回 **SKIPPED** 。此状态保留给前置条件。
+>
+> 另一方面， **ControlNodes和Decorators** 必须修改以支持这个新状态。
 
-另一方面， **ControlNodes和Decorators** 必须修改以支持这个新状态。
-:::
 
 通常的经验法则是，如果子节点返回 **SKIPPED** ，意味着它未执行，ControlNode应移动到下一个。
 

@@ -62,9 +62,9 @@
 </RetryUntilSuccessful>
 ```
 
-:::note
-已弃用的名称`RetryUntilSuccesful`（单个's'）仍向后兼容支持，但不应在新树中使用。
-:::
+> [!NOTE]
+> 已弃用的名称`RetryUntilSuccesful`（单个's'）仍向后兼容支持，但不应在新树中使用。
+
 
 ## KeepRunningUntilFailure
 
@@ -91,17 +91,17 @@ KeepRunningUntilFailure节点总是返回FAILURE（子节点中的FAILURE）或R
 </Timeout>
 ```
 
-:::tip
-将Timeout与RetryUntilSuccessful结合使用，实现健壮的超时重试模式：
+> [!TIP]
+> 将Timeout与RetryUntilSuccessful结合使用，实现健壮的超时重试模式：
+>
+> ```xml
+> <RetryUntilSuccessful num_attempts="3">
+>     <Timeout msec="5000">
+>         <LongRunningAction/>
+>     </Timeout>
+> </RetryUntilSuccessful>
+> ```
 
-```xml
-<RetryUntilSuccessful num_attempts="3">
-    <Timeout msec="5000">
-        <LongRunningAction/>
-    </Timeout>
-</RetryUntilSuccessful>
-```
-:::
 
 ## RunOnce
 
@@ -131,17 +131,18 @@ Precondition装饰器在触发其子节点之前评估脚本条件。
 </Precondition>
 ```
 
-:::tip 每次触发评估
-如果你需要在子节点运行时每次触发都检查条件（例如，当条件改变时中断正在运行的动作），使用`else="RUNNING"`：
+> [!TIP]
+> 每次触发评估
+> 如果你需要在子节点运行时每次触发都检查条件（例如，当条件改变时中断正在运行的动作），使用`else="RUNNING"`：
+>
+> ```xml
+> <Precondition if="battery_ok" else="RUNNING">
+>     <LongRunningAction/>
+> </Precondition>
+> ```
+>
+> 使用`else="RUNNING"`，如果条件变为false，装饰器返回RUNNING而不是FAILURE，允许树继续触发并重新检查条件。
 
-```xml
-<Precondition if="battery_ok" else="RUNNING">
-    <LongRunningAction/>
-</Precondition>
-```
-
-使用`else="RUNNING"`，如果条件变为false，装饰器返回RUNNING而不是FAILURE，允许树继续触发并重新检查条件。
-:::
 
 更多详细信息，请参见[前置和后置条件](../guides/pre_post_conditions.md)和[脚本语言介绍](../tutorial-basics/tutorial_09_scripting.md#script和precondition节点)。
 

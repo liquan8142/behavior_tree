@@ -14,9 +14,9 @@ MyCustomNode(const std::string& name, const NodeConfig& config);
 
 在某些情况下，我们希望向类的构造函数传递附加参数、参数、指针、引用等。
 
-:::caution
-有些人使用黑板来做到这一点。 **不要** 这样做。
-:::
+> [!CAUTION]
+> 有些人使用黑板来做到这一点。 **不要** 这样做。
+
 
 在本教程的其余部分，我们将只使用_"参数"_这个词。
 

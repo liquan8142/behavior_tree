@@ -16,11 +16,11 @@ sidebar_label: 09. 脚本示例
 
 支持的类型包括数字（整数和实数）、字符串和注册的ENUM。
 
-:::caution
-注意我们使用 **magic_enums** ，它有一些已知的[限制](https://github.com/Neargye/magic_enum/blob/master/doc/limitations.md)。
+> [!CAUTION]
+> 注意我们使用 **magic_enums** ，它有一些已知的[限制](https://github.com/Neargye/magic_enum/blob/master/doc/limitations.md)。
+>
+> 一个显著的限制是默认范围是[-128, 128]，除非按照上面链接中的描述进行更改。
 
-一个显著的限制是默认范围是[-128, 128]，除非按照上面链接中的描述进行更改。
-:::
 
 我们将使用这个XML：
 

@@ -180,9 +180,9 @@ __自版本2.4起__ 。
  </root>
 ```
 
-:::note[ROS用户注意]
-如果你想在[ROS包](http://wiki.ros.org/Packages)内找到文件，可以使用此语法：
-:::
+> [!NOTE[ROS用户注意]]
+> 如果你想在[ROS包](http://wiki.ros.org/Packages)内找到文件，可以使用此语法：
+
 
 ``` XML
 <include ros_pkg="name_package"  path="path_relative_to_pkg/grasp.xml"/>
