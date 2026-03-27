@@ -11,11 +11,10 @@ sidebar_position: 7
 
 在这里，我们尝试总结迁移时你应该注意的最相关差异。
 
-:::note
-在仓库中，你可以找到一个名为**convert_v3_to_v4.py**的Python脚本，可能为你节省一些时间（感谢用户https://github.com/SubaruArai）！
-
-尝试使用它，但请确保首先仔细检查结果！
-:::
+> [!NOTE]
+> 在仓库中，你可以找到一个名为 **convert_v3_to_v4.py** 的Python脚本，可能为你节省一些时间（感谢用户https://github.com/SubaruArai）！
+>
+> 尝试使用它，但请确保首先仔细检查结果！
 
 ## 类重命名
 
@@ -28,7 +27,7 @@ sidebar_position: 7
 | AsyncActionNode | ThreadedAction | C++ |
 | Optional | Expected | C++ |
 
-如果你想快速修复C++代码的编译（**即使鼓励重构**），添加：
+如果你想快速修复C++代码的编译（ **即使鼓励重构** ），添加：
 
 ```cpp
 namespace BT 
@@ -57,7 +56,7 @@ namespace BT
 
 ## SubTree和SubTreePlus
 
-3.X中的默认**SubTree**已被弃用，转而使用**SubtreePlus**。由于这是新的默认值，我们简单地称它为"SubTree"。
+3.X中的默认 **SubTree** 已被弃用，转而使用 **SubtreePlus** 。由于这是新的默认值，我们简单地称它为"SubTree"。
 
 | 3.8+中的名称 | 4.x中的名称 |
 |-------------|---------|
@@ -70,7 +69,7 @@ namespace BT
 
 另请查看[前置和后置条件](/docs/guides/pre_post_conditions)的介绍。
 
-**3.8**中的旧代码：
+**3.8** 中的旧代码：
 
 ``` xml
 <SetBlackboard output_key="port_A" value="42" />
@@ -81,7 +80,7 @@ namespace BT
 </BlackboardCheckInt>
 ```
 
-**4.X**中的新代码：
+**4.X** 中的新代码：
 
 ``` xml
 <Script code="port_A:=42; port_B:=69" />
@@ -108,7 +107,7 @@ while(status != NodeStatus::SUCCESS || status == NodeStatus::FAILURE)
 Tree::sleep(std::chrono::milliseconds timeout)
 ```
 
-这个特定的**sleep**实现可以在树中**任何**节点调用方法`TreeNode::emitWakeUpSignal`时被中断。这允许循环**立即**重新触发树。
+这个特定的 **sleep** 实现可以在树中 **任何** 节点调用方法`TreeNode::emitWakeUpSignal`时被中断。这允许循环 **立即** 重新触发树。
 
 方法`Tree::tickRoot()`已从公共API中移除，新的推荐方法是：
 
@@ -134,21 +133,21 @@ status = tree.tickWhileRunning(sleep_ms);
 
 这个新状态的目的是在[前置条件](/docs/guides/pre_post_conditions)不满足时返回。
 
-当节点返回**SKIPPED**时，它通知其父节点（ControlNode或Decorator）它尚未执行。
+当节点返回 **SKIPPED** 时，它通知其父节点（ControlNode或Decorator）它尚未执行。
 
 :::note
-当你实现自己的自定义**叶节点**时，不应返回**SKIPPED**。此状态保留给前置条件。
+当你实现自己的自定义 **叶节点** 时，不应返回 **SKIPPED** 。此状态保留给前置条件。
 
-另一方面，**ControlNodes和Decorators**必须修改以支持这个新状态。
+另一方面， **ControlNodes和Decorators** 必须修改以支持这个新状态。
 :::
 
-通常的经验法则是，如果子节点返回**SKIPPED**，意味着它未执行，ControlNode应移动到下一个。
+通常的经验法则是，如果子节点返回 **SKIPPED** ，意味着它未执行，ControlNode应移动到下一个。
 
 # 异步控制节点
 
 用户在这里发现了一个严重问题[here](https://github.com/BehaviorTree/BehaviorTree.CPP/issues/395)：
 
-> 如果**ControlNode**或**DecoratorNode**只有同步子节点，则无法中断它们。
+> 如果 **ControlNode** 或 **DecoratorNode** 只有同步子节点，则无法中断它们。
 
 考虑这个示例：
 
@@ -168,6 +167,6 @@ status = tree.tickWhileRunning(sleep_ms);
 
 为了解决这个问题，我们添加了两个新节点，`AsyncSequence`和`AsyncFallback`。
 
-当使用`AsyncSequence`时，在执行**每个**同步子节点后返回**RUNNING**，然后再移动到下一个兄弟节点。
+当使用`AsyncSequence`时，在执行 **每个** 同步子节点后返回 **RUNNING** ，然后再移动到下一个兄弟节点。
 
 在上面的示例中，要成功完成整个树，我们需要3次触发。

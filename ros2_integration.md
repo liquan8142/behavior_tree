@@ -15,7 +15,7 @@ BehaviorTree.CPP经常用于机器人和[ROS](https://docs.ros.org/en/humble/ind
 - 系统的所有其他元素应该是"面向服务"的组件，并应将任何业务逻辑和决策委托给任务规划器。
 
 :::caution
-有些词相同，但在**ROS**或**BT.CPP**的上下文中有不同的含义。
+有些词相同，但在 **ROS** 或 **BT.CPP** 的上下文中有不同的含义。
 
 特别是，单词"Action"和"Node"：
 

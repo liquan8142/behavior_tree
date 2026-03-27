@@ -4,15 +4,14 @@ sidebar_position: 2
 
 # 前置和后置条件
 
-利用[上一个教程](guides/scripting.md)中介绍的脚本语言的力量，BT.CPP 4.x引入了前置和后置条件的概念，即可以在节点的实际__tick()__之前或之后运行的脚本。
+利用[上一个教程](guides/scripting.md)中介绍的脚本语言的力量，BT.CPP 4.x引入了前置和后置条件的概念，即可以在节点的实际 __tick()__ 之前或之后运行的脚本。
 
-前置和后置条件由__所有__节点支持，不需要在C++代码中进行任何修改。
+前置和后置条件由 __所有__ 节点支持，不需要在C++代码中进行任何修改。
 
-:::caution
-脚本的目标__不是__编写复杂的代码，而是提高树的可读性，并在非常简单的用例中减少对自定义C++节点的需求。
-
-如果你的脚本变得太长，你可能需要重新考虑使用它们的决定。
-:::
+> [!CAUTION]
+> 脚本的目标 __不是__ 编写复杂的代码，而是提高树的可读性，并在非常简单的用例中减少对自定义C++节点的需求。
+>
+> 如果你的脚本变得太长，你可能需要重新考虑使用它们的决定。
 
 ## 前置条件
 
@@ -23,17 +22,17 @@ sidebar_position: 2
 | **_successIf** |  如果条件为true，跳过并返回SUCCESS | 仅在IDLE时（一次） |
 | **_while**     |  如果在IDLE时为false，跳过。如果在RUNNING时为false，中止节点并返回SKIPPED。 | IDLE和RUNNING（每次触发） |
 
-:::caution 重要：一次性 vs 持续评估
-**`_skipIf`、`_failureIf`和`_successIf`仅在节点从IDLE转换到另一个状态时评估一次**。当节点处于RUNNING时，它们**不会重新评估**。
+> [!CAUTION]
+> 重要：一次性 vs 持续评估
+> **`_skipIf`、`_failureIf`和`_successIf`仅在节点从IDLE转换到另一个状态时评估一次** 。当节点处于RUNNING时，它们 **不会重新评估** 。
+>
+> 只有 **`_while`** 在每次触发时检查，包括节点正在运行时。
+>
+> 如果你需要在每次触发时重新评估条件，请使用`<Precondition>`装饰器节点和`else="RUNNING"`，而不是这些属性。
 
-只有**`_while`**在每次触发时检查，包括节点正在运行时。
-
-如果你需要在每次触发时重新评估条件，请使用`<Precondition>`装饰器节点和`else="RUNNING"`，而不是这些属性。
-:::
-
-:::note 评估顺序
-前置条件按此顺序评估：`_failureIf` -> `_successIf` -> `_skipIf` -> `_while`。第一个满足的条件将决定结果。
-:::
+> [!NOTE]
+> 评估顺序
+> 前置条件按此顺序评估：`_failureIf` -> `_successIf` -> `_skipIf` -> `_while`。第一个满足的条件将决定结果。
 
 ### 示例
 
@@ -62,9 +61,9 @@ sidebar_position: 2
 
 ### 使用`<Precondition>`进行每次触发评估
 
-当你需要在**每次触发**时检查条件（不仅仅是节点开始时），请使用`<Precondition>`装饰器节点而不是内联属性。
+当你需要在 **每次触发** 时检查条件（不仅仅是节点开始时），请使用`<Precondition>`装饰器节点而不是内联属性。
 
-这在**ReactiveSequence**或**ReactiveFallback**中特别有用，你希望每次触发运行中的子节点时重新评估条件：
+这在 **ReactiveSequence** 或 **ReactiveFallback** 中特别有用，你希望每次触发运行中的子节点时重新评估条件：
 
 ``` xml
 <!-- 这在每次触发时检查条件 -->
@@ -95,9 +94,9 @@ sidebar_position: 2
 
 ### 示例
 
-在[关于子树的教程](tutorial-basics/tutorial_06_subtree_ports.md)中，我们看到了如何根据__MoveBase__的结果写入特定的黑板变量。
+在[关于子树的教程](tutorial-basics/tutorial_06_subtree_ports.md)中，我们看到了如何根据 __MoveBase__ 的结果写入特定的黑板变量。
 
-在左侧，你可以看到这个逻辑如何在BT.CPP 3.x中实现，以及使用后置条件代替是多么简单。此外，新语法支持**枚举**。
+在左侧，你可以看到这个逻辑如何在BT.CPP 3.x中实现，以及使用后置条件代替是多么简单。此外，新语法支持 **枚举** 。
 
 ![](images/post_example.svg)
 
@@ -129,7 +128,7 @@ sidebar_position: 2
 
 由于BT仅限于SUCCESS和FAILURE，这可能不直观。
 
-一个解决方案是将__结果/错误代码__存储在黑板中，但在3.X版本中这很繁琐。
+一个解决方案是将 __结果/错误代码__ 存储在黑板中，但在3.X版本中这很繁琐。
 
 前置条件可以帮助我们实现更可读的代码，如下所示：
 
@@ -147,10 +146,10 @@ sidebar_position: 2
 
 ![landing.svg](images/landing.svg)
 
-只有当状态等于**DO_LANDING**时，此节点才会执行，并且一旦`altitude`的值足够小，状态将更改为**LANDED**。
+只有当状态等于 **DO_LANDING** 时，此节点才会执行，并且一旦`altitude`的值足够小，状态将更改为 **LANDED** 。
 
 注意DO_LANDING和LANDED是枚举，不是字符串。
 
 :::tip
-这种模式的一个令人惊讶的副作用是，我们使节点更加__声明式__，即更容易将此特定节点/子树移动到树的不同部分。
+这种模式的一个令人惊讶的副作用是，我们使节点更加 __声明式__ ，即更容易将此特定节点/子树移动到树的不同部分。
 :::

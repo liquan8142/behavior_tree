@@ -5,13 +5,13 @@ sidebar_label: 07. 使用多个XML文件
 
 # 如何使用多个XML文件
 
-在我们展示的示例中，我们总是从**单个XML文件**创建整个树及其子树。
+在我们展示的示例中，我们总是从 **单个XML文件** 创建整个树及其子树。
 
 但是随着子树数量的增长，使用多个文件会更加方便。
 
 ## 我们的子树
 
-文件 **subtree_A.xml**：
+文件 **subtree_A.xml** ：
 
 ``` xml
 <root>
@@ -21,7 +21,7 @@ sidebar_label: 07. 使用多个XML文件
 </root>
 ```
 
-文件 **subtree_B.xml**：
+文件 **subtree_B.xml** ：
 
 ``` xml 
 <root>
@@ -33,7 +33,7 @@ sidebar_label: 07. 使用多个XML文件
 
 ## 手动加载多个文件（推荐）
 
-让我们考虑一个应该包含其他2个文件的 **main_tree.xml**：
+让我们考虑一个应该包含其他2个文件的 **main_tree.xml** ：
 
 ``` xml 
 <root>
@@ -102,7 +102,7 @@ Robot says: Executing Sub_A
 
 ## 使用"include"添加多个文件
 
-如果你更喜欢将包含树的信息移动到XML本身，你可以如下修改 **main_tree.xml**：
+如果你更喜欢将包含树的信息移动到XML本身，你可以如下修改 **main_tree.xml** ：
 
 ``` xml
 <root BTCPP_format="4">

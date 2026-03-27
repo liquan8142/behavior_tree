@@ -3,7 +3,7 @@ sidebar_position: 11
 sidebar_label: 11. 连接到Groot2
 ---
 
-**Groot2**是用于编辑、监控和与使用**BT.CPP**创建的行为树交互的官方IDE。
+**Groot2** 是用于编辑、监控和与使用 **BT.CPP** 创建的行为树交互的官方IDE。
 
 集成两者非常容易，正如你将在本教程中看到的，但首先你应该理解一些简单的概念。
 
@@ -33,7 +33,7 @@ Groot需要一个"TreeNode模型"。
   </TreeNodesModel>
 ```
 
-然而，**你不应该手动创建这些XML描述**。
+然而， **你不应该手动创建这些XML描述** 。
 
 BT.CPP有一个特定的函数将为你生成这个XML。
 
@@ -50,7 +50,7 @@ BT.CPP有一个特定的函数将为你生成这个XML。
 
 要将这些模型导入到UI中，可以：
 
-- 将XML保存到文件（例如`models.xml`），然后在Groot2中点击**导入模型**按钮。
+- 将XML保存到文件（例如`models.xml`），然后在Groot2中点击 **导入模型** 按钮。
 - 或者手动将XML部分直接添加到你的`.xml`或`.btproj`文件中。
 
 ## 向Groot添加实时可视化
@@ -140,7 +140,7 @@ int main()
 
 黑板中的内容使用JSON格式发送到Groot2。
 
-基本类型（整数、实数、字符串）开箱即用。要允许Groot2可视化你自己的自定义类型，你需要包含**behaviortree_cpp/json_export.h**并定义一个JSON转换器。
+基本类型（整数、实数、字符串）开箱即用。要允许Groot2可视化你自己的自定义类型，你需要包含 **behaviortree_cpp/json_export.h** 并定义一个JSON转换器。
 
 ### 使用BT_JSON_CONVERTER宏（推荐）
 
@@ -184,7 +184,7 @@ BT_JSON_CONVERTER(Waypoint, wp)
 }
 ```
 
-然后，在你的**main**函数中注册这些类型（在创建树之前）：
+然后，在你的 **main** 函数中注册这些类型（在创建树之前）：
 
 ```cpp
 BT::RegisterJsonDefinition<Position2D>();

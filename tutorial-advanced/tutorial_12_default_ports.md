@@ -13,7 +13,7 @@ sidebar_label: 12. 默认端口值
 
 ## 默认输入端口
 
-让我们考虑一个初始化多个端口的节点。我们使用自定义类型**Point2D**，但对于简单类型（如`int`、`double`或`string`）也是如此。
+让我们考虑一个初始化多个端口的节点。我们使用自定义类型 **Point2D** ，但对于简单类型（如`int`、`double`或`string`）也是如此。
 
 ```cpp
   static PortsList providedPorts()
@@ -38,7 +38,7 @@ BT::InputPort<Point2D>("pointA", Point2D{1, 2}, "...");
 
 如果实现了模板特化`convertFromString<Point2D>()`，我们也可以使用它。
 
-换句话说，如果我们的**convertFromString**期望两个逗号分隔的值，以下语法应该是等价的：
+换句话说，如果我们的 **convertFromString** 期望两个逗号分隔的值，以下语法应该是等价的：
 
 ```cpp
 BT::InputPort<Point2D>("pointB", "3,4", "...");
@@ -54,7 +54,7 @@ BT::InputPort<Point2D>("pointB", Point2D{3, 4}, "...");
 BT::InputPort<Point2D>("pointC", "{point}", "...");
 ```
 
-如果端口名称和黑板条目名称**相同**，你可以使用`"{=}"`
+如果端口名称和黑板条目名称 **相同** ，你可以使用`"{=}"`
 
 ```cpp
 BT::InputPort<Point2D>("pointD", "{=}", "...");

@@ -32,10 +32,10 @@
 |------|------|---------|-------------|
 | `num_cycles` | InputPort\<int\> | (必需) | 重复次数。使用`-1`表示无限循环。 |
 
-- 所有N次重复成功完成后返回**SUCCESS**。
-- 如果子节点返回FAILURE，立即返回**FAILURE**（循环中断）。
-- 如果子节点返回RUNNING，返回**RUNNING**；计数器**不**递增，相同的迭代在下次触发时恢复。
-- 如果子节点返回**SKIPPED**，子节点被重置但计数器不递增。
+- 所有N次重复成功完成后返回 **SUCCESS** 。
+- 如果子节点返回FAILURE，立即返回 **FAILURE** （循环中断）。
+- 如果子节点返回RUNNING，返回 **RUNNING** ；计数器 **不** 递增，相同的迭代在下次触发时恢复。
+- 如果子节点返回 **SKIPPED** ，子节点被重置但计数器不递增。
 
 ```xml
 <Repeat num_cycles="3">
@@ -51,10 +51,10 @@
 |------|------|---------|-------------|
 | `num_attempts` | InputPort\<int\> | (必需) | 尝试次数。使用`-1`表示无限重试。 |
 
-- 如果子节点返回SUCCESS，立即返回**SUCCESS**（循环中断）。
-- 所有N次尝试用尽后返回**FAILURE**。
-- 如果子节点返回RUNNING，返回**RUNNING**；尝试计数器**不**递增，相同的迭代在下次触发时恢复。
-- 如果子节点返回**SKIPPED**，子节点被重置并返回SKIPPED。
+- 如果子节点返回SUCCESS，立即返回 **SUCCESS** （循环中断）。
+- 所有N次尝试用尽后返回 **FAILURE** 。
+- 如果子节点返回RUNNING，返回 **RUNNING** ；尝试计数器 **不** 递增，相同的迭代在下次触发时恢复。
+- 如果子节点返回 **SKIPPED** ，子节点被重置并返回SKIPPED。
 
 ```xml
 <RetryUntilSuccessful num_attempts="3">
@@ -83,7 +83,7 @@ KeepRunningUntilFailure节点总是返回FAILURE（子节点中的FAILURE）或R
 | `msec` | InputPort\<unsigned\> | (必需) | 超时持续时间（毫秒）。 |
 
 - 如果子节点在超时前完成（SUCCESS或FAILURE），则返回其状态。
-- 如果超时到期时子节点仍在RUNNING，则它被中止并返回**FAILURE**。
+- 如果超时到期时子节点仍在RUNNING，则它被中止并返回 **FAILURE** 。
 
 ```xml
 <Timeout msec="5000">
@@ -121,9 +121,9 @@ Precondition装饰器在触发其子节点之前评估脚本条件。
 | `if` | InputPort\<std::string\> | (必需) | 要评估的脚本条件 |
 | `else` | InputPort\<NodeStatus\> | FAILURE | 条件为false时返回的状态 |
 
-- 如果条件为**true**，触发子节点。
-- 如果条件为**false**，节点返回`else`中指定的状态。
-- 一旦子节点开始（返回RUNNING），条件**不会重新评估**，直到子节点完成。
+- 如果条件为 **true** ，触发子节点。
+- 如果条件为 **false** ，节点返回`else`中指定的状态。
+- 一旦子节点开始（返回RUNNING），条件 **不会重新评估** ，直到子节点完成。
 
 ```xml
 <Precondition if="battery_level > 20" else="FAILURE">

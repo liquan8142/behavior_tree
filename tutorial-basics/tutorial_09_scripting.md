@@ -12,12 +12,12 @@ sidebar_label: 09. 脚本示例
 
 在我们的脚本语言中，变量是黑板中的条目。
 
-在这个示例中，我们使用**Script**节点来设置这些变量，并观察我们如何在**SaySomething**中作为输入端口访问它们。
+在这个示例中，我们使用 **Script** 节点来设置这些变量，并观察我们如何在 **SaySomething** 中作为输入端口访问它们。
 
 支持的类型包括数字（整数和实数）、字符串和注册的ENUM。
 
 :::caution
-注意我们使用**magic_enums**，它有一些已知的[限制](https://github.com/Neargye/magic_enum/blob/master/doc/limitations.md)。
+注意我们使用 **magic_enums** ，它有一些已知的[限制](https://github.com/Neargye/magic_enum/blob/master/doc/limitations.md)。
 
 一个显著的限制是默认范围是[-128, 128]，除非按照上面链接中的描述进行更改。
 :::
@@ -45,10 +45,10 @@ sidebar_label: 09. 脚本示例
 
 我们期望以下黑板条目包含：
 
-- **msg**：字符串"hello world"
-- **A**：对应于别名THE_ANSWER的整数值。
-- **B**：实数值3.14
-- **C**：对应于枚举RED的整数值。
+- **msg** ：字符串"hello world"
+- **A** ：对应于别名THE_ANSWER的整数值。
+- **B** ：实数值3.14
+- **C** ：对应于枚举RED的整数值。
 
 因此，预期输出是：
 

@@ -9,14 +9,14 @@ sidebar_label: 15. 模拟与节点替换
 
 自版本4.1起，我们引入了一种称为"替换规则"的新机制，使这个过程更容易。
 
-它由`BehaviorTreeFactory`类中的附加方法组成，这些方法应该在节点注册**之后**、实际树实例化**之前**调用。
+它由`BehaviorTreeFactory`类中的附加方法组成，这些方法应该在节点注册 **之后** 、实际树实例化 **之前** 调用。
 
 例如，给定XML：
 
 ```xml
 <SaySomething name="talk" message="hello world"/>
 ```
-我们可能希望将此节点替换为另一个名为**TestMessage**的节点：
+我们可能希望将此节点替换为另一个名为 **TestMessage** 的节点：
 
 相应的替换通过以下命令完成：
 
@@ -26,7 +26,7 @@ factory.addSubstitutionRule("talk", "TestMessage");
 
 第一个参数包含将与`TreeNode::fullPath`匹配的[通配符字符串](https://en.wikipedia.org/wiki/Wildcard_character)。
 
-有关**fullPath**的详细信息，请查看[上一个教程](tutorial-basics/tutorial_10_observer.md)。
+有关 **fullPath** 的详细信息，请查看[上一个教程](tutorial-basics/tutorial_10_observer.md)。
 
 ## TestNode
 
@@ -173,6 +173,6 @@ int main(int argc, char** argv)
 
 如你所见，有两个主要部分：
 
-- **TestNodeConfigs**，设置一个或多个**TestNode**的参数和名称。
+- **TestNodeConfigs** ，设置一个或多个 **TestNode** 的参数和名称。
 
-- **SubstitutionRules**，指定实际的规则。
+- **SubstitutionRules** ，指定实际的规则。

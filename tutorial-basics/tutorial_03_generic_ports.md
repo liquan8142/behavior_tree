@@ -12,7 +12,7 @@ sidebar_label: 03. 通用类型端口
 
 ## 解析字符串
 
-__BehaviorTree.CPP__支持将字符串自动转换为常见的
+__BehaviorTree.CPP__ 支持将字符串自动转换为常见的
 类型，如`int`、`long`、`double`、`bool`、`NodeStatus`等。
 用户定义的类型也可以轻松支持。
 

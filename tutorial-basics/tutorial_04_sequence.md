@@ -7,7 +7,7 @@ sidebar_label: 04. 响应式行为
 
 下一个示例展示了`SequenceNode`和`ReactiveSequence`之间的区别。
 
-我们将实现一个__异步动作__，即一个需要很长时间才能完成，并且在完成条件未满足时返回RUNNING的动作。
+我们将实现一个 __异步动作__ ，即一个需要很长时间才能完成，并且在完成条件未满足时返回RUNNING的动作。
 
 异步动作具有以下要求：
 
@@ -23,9 +23,9 @@ sidebar_label: 04. 响应式行为
 
 ## StatefulActionNode
 
-__StatefulActionNode__是实现异步动作的首选方式。
+__StatefulActionNode__ 是实现异步动作的首选方式。
 
-当你的代码包含__请求-回复模式__时，它特别有用，即当动作向另一个进程发送异步请求，并定期检查是否已收到回复时。
+当你的代码包含 __请求-回复模式__ 时，它特别有用，即当动作向另一个进程发送异步请求，并定期检查是否已收到回复时。
 
 基于该回复，它可能返回SUCCESS或FAILURE。
 
@@ -39,7 +39,7 @@ __StatefulActionNode__的派生类必须重写以下虚方法，而不是`tick()
 
 - `void onHalted()`：当此节点被树中的另一个节点中止时调用。
 
-让我们创建一个名为__MoveBaseAction__的虚拟节点：
+让我们创建一个名为 __MoveBaseAction__ 的虚拟节点：
 
 ``` cpp
 // 自定义类型
