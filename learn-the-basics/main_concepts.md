@@ -50,7 +50,7 @@ factory.registerSimpleAction("Hello", std::bind(HelloTick));
 
 ## 通过继承创建自定义节点
 
-在上面的示例中，使用__函数指针__（依赖注入）创建了调用`HelloTick`的特定类型的TreeNodes。
+在上面的示例中，使用 __函数指针__（依赖注入）创建了调用`HelloTick`的特定类型的TreeNodes。
 
 通常，要定义自定义TreeNode，你应该继承自`TreeNode`类，或者更具体地说，它的派生类：
 

@@ -8,9 +8,9 @@ sidebar_label: 01. 你的第一个行为树
 行为树（Behavior Trees）与状态机类似，本质上是一种在正确时间和条件下调用 __回调函数__ 的机制。
 这些回调函数内部发生什么完全由你决定。
 
-我们将交替使用 __"调用回调函数"__ 和 __"触发"__ 这两个表达方式。
+我们将交替使用 __"to invoke the callback"__ 和 __"tick"__ 这两个表达方式。
 
-在本教程系列中，大多数时候我们的虚拟动作（Actions）只是简单地在控制台打印一些信息，
+在本教程系列中，大多数时候我们的假动作（dummy Actions）只是简单地在控制台打印一些信息，
 但请记住，真实的"生产"代码可能会做更复杂的事情。
 
 此外，我们将创建这个简单的树：
@@ -42,9 +42,9 @@ public:
 
 如你所见：
 
-- 任何树节点实例都有一个`name`。这个标识符应该是人类可读的，并且__不需要__唯一。
+- 任何树节点实例都有一个`name`。这个标识符应该是人类可读的，并且 __不需要__ 唯一。
  
-- __tick()__方法是实际动作发生的地方。它必须始终返回一个`NodeStatus`，即RUNNING、SUCCESS或FAILURE。
+- __tick()__ 方法是实际动作发生的地方。它必须始终返回一个`NodeStatus`，即RUNNING、SUCCESS或FAILURE。
 
 或者，我们可以使用 __依赖注入__ 来根据函数指针（即"函数对象"）创建树节点。
 
@@ -97,6 +97,17 @@ private:
 - CheckBattery()
 - GripperInterface::open()
 - GripperInterface::close()
+
+**注意**：`GripperInterface::open()` 和 `GripperInterface::close()` 的签名是 `NodeStatus open()` 和 `NodeStatus close()`，而 `SimpleActionNode` 要求的签名是 `BT::NodeStatus myFunction(BT::TreeNode& self)`。它们不匹配！我们需要使用 **std::bind** 或 **lambda 表达式** 来进行适配：
+
+```cpp
+// 用 lambda 表达式创建适配器，忽略 TreeNode 参数
+auto open_func = [&gripper](BT::TreeNode& self) {
+    return gripper.open();  // 忽略 self 参数
+};
+```
+
+这种设计模式叫做 **适配器模式**：通过 lambda 或 bind 创建一个适配器，使签名匹配，既满足了行为树框架的接口要求，又不需要修改原有的业务代码。
 
 ## 使用XML动态创建树
 

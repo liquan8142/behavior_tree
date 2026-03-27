@@ -17,7 +17,7 @@
 
 你可能注意到：
 
-- 树的第一个标签是`<root>`。它应包含__1个或多个__标签`<BehaviorTree>`。
+- 树的第一个标签是`<root>`。它应包含 __1个或多个__ 标签`<BehaviorTree>`。
 
 - 标签`<BehaviorTree>`应具有属性`[ID]`。
 
@@ -26,13 +26,13 @@
 - 每个TreeNode由单个标签表示。具体来说：
 
      - 标签的名称是用于在工厂中注册TreeNode的 __ID__ 。
-     - 属性`[name]`指的是实例的名称，是__可选的__。
+     - 属性`[name]`指的是实例的名称，是 __可选的__。
      - 端口使用属性配置。在前面的示例中，动作`SaySomething`需要输入端口`message`。
 
 - 在子节点数量方面：
 
-     - `ControlNodes`包含__1到N个子节点__。
-     - `DecoratorNodes`和子树包含__仅1个子节点__。
+     - `ControlNodes`包含 __1到N个子节点__。
+     - `DecoratorNodes`和子树包含 __仅1个子节点__。
      - `ActionNodes`和`ConditionNodes`__没有子节点__。
 
 ## 端口重映射和指向黑板条目的指针
@@ -115,13 +115,12 @@ BB键使用此语法表示：`{key_name}`。
 
 假设我们想将一些动作封装到行为树" __GraspObject__ "中（为简单起见，省略了可选的属性[name]）。
 
-``` XML
+``` XML hl_lines="6"
  <root BTCPP_format="4" >
  
      <BehaviorTree ID="MainTree">
         <Sequence>
            <Action  ID="SaySomething"  message="Hello World"/>
-           // highlight-next-line
            <SubTree ID="GraspObject"/>
         </Sequence>
      </BehaviorTree>
