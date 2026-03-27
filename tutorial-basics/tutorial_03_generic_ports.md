@@ -5,15 +5,13 @@ sidebar_label: 03. 通用类型端口
 
 # 通用类型端口
 
-在前面的教程中，我们介绍了输入和输出端口，其中
-端口的类型是`std::string`。
+在前面的教程中，我们介绍了输入和输出端口，其中端口的类型是`std::string`。
 
 接下来，我们将展示如何为你的端口分配通用的C++类型。
 
 ## 解析字符串
 
-__BehaviorTree.CPP__ 支持将字符串自动转换为常见的
-类型，如`int`、`long`、`double`、`bool`、`NodeStatus`等。
+__BehaviorTree.CPP__ 支持将字符串自动转换为常见的类型，如`int`、`long`、`double`、`bool`、`NodeStatus`等。
 用户定义的类型也可以轻松支持。
 
 例如：
