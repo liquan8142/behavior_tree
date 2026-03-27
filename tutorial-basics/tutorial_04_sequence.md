@@ -193,7 +193,7 @@ Robot says: mission completed!
 
 如果我们使用`ReactiveSequence`，当子节点`MoveBase`返回RUNNING时，序列会重新启动，条件`BatteryOK`会__再次__执行。
 
-如果在任何时候，`BatteryOK`返回__FAILURE__，`MoveBase`动作将被_中断_（具体来说是_中止_）。
+如果在任何时候，`BatteryOK`返回__FAILURE__，`MoveBase`动作将被 _中断_ （具体来说是 _中止_）。
 
 ``` xml hl_lines="3"
  <root>

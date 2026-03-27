@@ -29,7 +29,7 @@ struct Position2D
 我们需要提供`BT::convertFromString<Position2D>(StringView)`的模板特化。
 
 `Position2D`如何序列化为字符串由你决定；在这种情况下，
-我们简单地用_分号_分隔两个数字。
+我们简单地用 _分号_ 分隔两个数字。
 
 ``` cpp
 // 将字符串转换为Position2D的模板特化。
