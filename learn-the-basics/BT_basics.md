@@ -32,7 +32,7 @@
 
 ![basic sequence](images/sequence_animation.svg)
 
-__序列__ 是最简单的 __控制节点__ ：它一个接一个地执行其子节点，如果它们全部成功，它也返回SUCCESS。
+__Sequence__ 是最简单的 __ControlNode__ ：它一个接一个地执行其子节点，如果它们全部成功，它也返回SUCCESS。
 
 1. 第一次触发将Sequence节点设置为RUNNING（橙色）。
 2. Sequence触发第一个子节点"OpenDoor"，最终返回SUCCESS。
@@ -46,7 +46,7 @@ __序列__ 是最简单的 __控制节点__ ：它一个接一个地执行其子
 | TreeNode类型  | 子节点数量     | 说明              |
 | -----------       | ------------------ | ------------------ |
 | ControlNode       | 1...N | 通常，根据其兄弟节点的结果和/或其自身状态触发子节点。        |
-| DecoratorNode     | 1     | 除其他外，它可能改变其子节点的结果或多次触发它。 |
+| DecoratorNode(装饰节点)     | 1     | 除其他外，它可能改变其子节点的结果或多次触发它。 |
 | ConditionNode     | 0     | 不应改变系统。不应返回RUNNING。 |
 | ActionNode        | 0     | 这是"做某事"的节点   |
 
