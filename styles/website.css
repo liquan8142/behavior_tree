@@ -1,0 +1,79 @@
+/* 自定义GitBook admonition样式 */
+
+/* 基础admonition样式 */
+.markdown-section blockquote {
+  border-left: 4px solid;
+  background-color: #f8f9fa;
+  padding: 12px 24px 12px 20px;
+  margin: 16px 0;
+  border-radius: 0 4px 4px 0;
+  position: relative;
+}
+
+/* 移除默认的blockquote样式 */
+.markdown-section blockquote:not([class]) {
+  border-left-color: #dfe2e5;
+}
+
+/* NOTE - 蓝色 */
+.markdown-section blockquote.note,
+.markdown-section blockquote[class*="note"] {
+  border-left-color: #4285f4;
+  background-color: #e8f0fe;
+}
+
+/* TIP - 绿色 */
+.markdown-section blockquote.tip,
+.markdown-section blockquote[class*="tip"] {
+  border-left-color: #0f9d58;
+  background-color: #e6f4ea;
+}
+
+/* WARNING - 黄色 */
+.markdown-section blockquote.warning,
+.markdown-section blockquote[class*="warning"] {
+  border-left-color: #f4b400;
+  background-color: #fef7e0;
+}
+
+/* CAUTION - 红色 */
+.markdown-section blockquote.caution,
+.markdown-section blockquote[class*="caution"] {
+  border-left-color: #db4437;
+  background-color: #fce8e6;
+}
+
+/* IMPORTANT - 紫色 */
+.markdown-section blockquote.important,
+.markdown-section blockquote[class*="important"] {
+  border-left-color: #9c27b0;
+  background-color: #f3e5f5;
+}
+
+/* admonition标题 */
+.markdown-section blockquote strong:first-child {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+/* 针对 > [!TYPE] 格式的特殊处理 */
+.markdown-section blockquote p:first-child strong {
+  color: inherit;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  .markdown-section blockquote {
+    padding: 10px 16px 10px 14px;
+    margin: 12px 0;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .markdown-section blockquote {
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "behaviortree-cpp-docs-zh",
+  "version": "1.0.0",
+  "description": "BehaviorTree.CPP 中文文档",
+  "main": "index.js",
+  "scripts": {
+    "init": "gitbook install",
+    "serve": "gitbook serve",
+    "build": "gitbook build",
+    "pdf": "gitbook pdf",
+    "epub": "gitbook epub",
+    "mobi": "gitbook mobi"
+  },
+  "keywords": [
+    "behaviortree",
+    "cpp",
+    "documentation",
+    "chinese"
+  ],
+  "author": "李社会",
+  "license": "MIT",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-search": "^1.0.3",
+    "gitbook-plugin-sharing": "^1.0.3",
+    "gitbook-plugin-fontsettings": "^1.0.3",
+    "gitbook-plugin-livereload": "^0.0.1",
+    "gitbook-plugin-theme-default": "^1.0.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}

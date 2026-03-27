@@ -1,0 +1,40 @@
+# GitBook 配置
+root: .  # 文档根目录
+
+# 文档结构
+structure:
+  readme: intro.md      # 首页
+  summary: SUMMARY.md   # 目录
+
+# 插件配置
+plugins:
+  - theme-default
+  - search
+  - sharing
+  - fontsettings
+  - livereload
+
+# 主题配置
+theme-default:
+  # 自定义样式（可选）
+  styles:
+    website: ./styles/website.css
+    pdf: ./styles/pdf.css
+    epub: ./styles/epub.css
+    mobi: ./styles/mobi.css
+
+# 书籍信息
+title: "BehaviorTree.CPP 中文文档"
+description: "BehaviorTree.CPP 库的中文文档和教程"
+author: "李社会"
+language: zh
+
+# GitBook版本
+gitbook: ">= 3.0.0"
+
+# 输出格式
+output:
+  website: ./_book
+  pdf: ./_book/book.pdf
+  epub: ./_book/book.epub
+  mobi: ./_book/book.mobi
